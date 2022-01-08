@@ -1,0 +1,105 @@
+::-webkit-scrollbar {
+    width: 13px;
+}
+
+::-webkit-scrollbar-track {
+    border: 5px;
+    box-shadow: inset 0 0 15px #d6d6d6;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e3a8a;
+    border-radius: 25px;
+}
+
+section {
+    overflow: hidden;
+}
+.alturaportada {
+    height: 75vh;
+}
+@media screen and (max-width: 600px) {
+    .alturaportada {
+        height: 27vh;
+    }
+}
+.contenedor
+{   
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+.liquid{
+    position: relative;
+}
+.liquid h2{
+    position: absolute;
+    color: #fff;
+    transform: translate(-50%, -50%);
+}
+.liquid h2:nth-child(1) {
+    color: #fff;
+    text-shadow: -1px 1px 0px #183954,
+    -2px 2px 0px #183954,
+    -3px 3px 0px #183954,
+    -4px 4px 0px #183954,
+    -18px 18px 20px rgb(138, 138, 138),
+    -18px 18px 30px rgb(138, 138, 138);
+    border: none;
+}
+.liquid h2:nth-child(2) {
+    /* color: #03a9f4; */
+    color: #03a9f4;
+    animation: animate 3s ease-in-out infinite;
+}
+
+@keyframes animate {
+    0%, 100%
+    {
+        /* clip-path: polygon(0% 46%, 16% 45%, 34% 52%, 50% 61%, 68% 65%, 85% 61%, 100% 53%, 100% 100%, 0% 100%); */
+        clip-path: polygon(0% 60%, 15% 44%, 32% 50%, 54% 60%, 70% 61%, 84% 59%, 100% 52%, 100% 100%, 0% 100%);
+    }
+    50%
+    {
+        /* clip-path: polygon(0% 66%, 14% 73%, 34% 76%, 50% 71%, 64% 62%, 79% 55%, 100% 51%, 100% 100%, 0% 100%); */
+        clip-path: polygon(0 60%, 16% 65%, 34% 66%, 51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100%);
+    }
+}
+.swiper {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+.altura{
+    height: 70vh;
+}
+.splide__slide img {
+    width: 300px;
+}
+@media screen and (max-width: 600px) {
+    .swiper {
+        width: 100%;
+        height: auto;
+        background: #fff;
+    }
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    .altura{
+        height: auto;
+    }
+
+    .liquid h2:nth-child(1) {
+        color: rgb(248, 248, 248);
+        text-shadow: -1px 1px 0px #183954,
+        -2px 2px 0px #183954,
+        -3px 3px 0px #183954,
+        -4px 4px 0px #183954,
+        -18px 18px 20px rgb(138, 138, 138),
+        -18px 18px 10px rgb(138, 138, 138);
+        border: none;
+    }
+}
