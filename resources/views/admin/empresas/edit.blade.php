@@ -15,7 +15,7 @@
             {!! Form::model($empresa, ['route' => ['admin.empresas.update', $empresa], 'method' => 'put', 'files' => true, 'autocomplete' => 'off']) !!}
             <div class="row mb-3">
                 <div class="col input-group">
-                    {!! Form::label('name', 'Company ', ['class' => 'input-group-text']) !!}
+                    {!! Form::label('name', 'Company  ', ['class' => 'input-group-text']) !!}
                     {!! Form::text('name', null, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Write a name company', 'autocomplete' => 'off']) !!}
                     @error('name')
                         <div class="alert alert-danger mt-1" role="alert">
