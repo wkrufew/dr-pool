@@ -79,7 +79,8 @@
         </div>
         @enderror
     </div>
-    
+    <link href="{{ asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css') }}"
+        rel="stylesheet" />
     <label class="block uppercase text-blue-900 text-xs font-bold mb-2">Select a service *</label>
     <div wire:ignore  class="relative cursor-pointer w-full mb-4 mt-2 text-sm text-gray-500 shadow-md px-4 border-2 rounded-full">
         
@@ -115,8 +116,8 @@
         </div>
     </div>
     @enderror
-    
-     <script>
+    <script src="{{ asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js') }}"></script>
+    <script>
         document.addEventListener('DOMContentLoaded', function () {
             $('#select2-dropdown').select2()
             $('#select2-dropdown').on('change', function (e) {

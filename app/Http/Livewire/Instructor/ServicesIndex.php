@@ -15,8 +15,7 @@ class ServicesIndex extends Component
     public $search;
 
     public function render()
-    {   //para restringir y que solo el due;o de crear el servicio vea solo sus servicios
-        //where('user_id', auth()->user()->id)
+    {  
         $services = Service::where('title', 'LIKE', '%' . $this->search . '%') 
                                 ->latest('id')
                                 ->paginate(8);

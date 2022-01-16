@@ -242,7 +242,7 @@ return [
             'icon' => 'fas fa-fw fa-tachometer-alt',
             'can' => 'Ver Dashboard', 
             'active' => ['admin/home'],
-        ], */
+        ], */ 
         [
             'text'        => 'Company',
             'route'         => 'admin.empresas.index',

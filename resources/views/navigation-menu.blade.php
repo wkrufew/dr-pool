@@ -9,7 +9,7 @@
                     </a>
                 </div> 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-6 mx-auto sm:-my-px sm:ml-32 lg:flex @auth pl-44 @else pl-28 @endauth">
+                <div class="hidden space-x-6 mx-auto sm:-my-px sm:ml-32 lg:flex {{ @auth pl-44 @else pl-28 @endauth }}">
                     <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                         <label style="font-family: Metropolis,sans-serif;" class="text-blue-800 text-sm border-2 border-blue-800 rounded-full py-1  px-5  cursor-pointer hover:text-white hover:bg-blue-800 transition duration-500 ease-in-out transform hover:-translate-y-0.5 hover:scale-105 tracking-wider">Home</label>
                     </x-jet-nav-link>

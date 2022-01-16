@@ -14,10 +14,10 @@ class Formulario2Componente extends Component
 {
     use WithFileUploads;
 
-    public $name, $phone, $email, $ubication, $material, $sustancia, $galon, $description,$file1,$file2,$service_id, $service_name,$day;
+    public $name, $phone, $email, $ubication, $material, $sustancia, $galon, $description,$file1,$file2,$service_id,$day;
     /* public $services; */
     public $services;
-    public $serviceSelectedId;
+    /* public $serviceSelectedId; */
     public $serviceTite;
 
     protected $rules = [
@@ -42,11 +42,12 @@ class Formulario2Componente extends Component
 
     public function mount()
     {
+        $this->services = [];
+
         if (Auth::check()) {
             $this->name = auth()->user()->name;
             $this->email = auth()->user()->email;
         }
-        $this->services = [];
     }
 
     public function render()
@@ -69,6 +70,7 @@ class Formulario2Componente extends Component
     {
         $this->validate();
         try{
+           
             if ($this->file1) {
                 $file1 = $this->file1->store('contacts');
             } else {
@@ -105,7 +107,7 @@ class Formulario2Componente extends Component
 
        // fin del envio de correos
 
-        $this->reset('name', 'phone', 'email', 'ubication', 'material','sustancia', 'galon', 'description','file1','file2','serviceSelectedId','serviceTite','services','day');
+        $this->reset('name', 'phone', 'email', 'ubication', 'material','sustancia', 'galon', 'description','file1','file2','services','serviceTite','service_id','day');
 
         session()->flash('mensaje', 'exito');
         return redirect()->to('/');
