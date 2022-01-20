@@ -5,7 +5,6 @@
                 class="object-cover fotoportada w-full">
         </div>
     </section>
-
     <section class=" relative bg-white pt-1 md:pt-4">
         <div class="max-w-xl mx-auto mt-6">
             <div class="container grid grid-cols-1 lg:grid-cols-1">

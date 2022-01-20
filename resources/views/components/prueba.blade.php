@@ -4,7 +4,7 @@
  $empresa = DB::table('empresas')->select('name','telefono1','telefono2','foto','propietario','pais_ciudad','calles','correo','dias','horas','facebook','instagram')->first();
 @endphp --}}
 {{-- FIN DE LA CONSULTA --}}
-<footer class="relative  bg-gradient-to-t from-blue-900 to-white bg-fixed text-gray-700 select-none">
+<footer class="relative  bg-blue-900 text-gray-700 select-none">
  <div class="relative w-full -mt-1">
      <svg class="wave-top" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg"
          xmlns:xlink="http://www.w3.org/1999/xlink">

@@ -1,13 +1,9 @@
 <section class="pb-10 select-none">
     <h1 class="font-bold text-blue-900 text-base md:text-xl mb-2 mt-1 ml-4">Comments</h1>
-   
-
     @auth
         <article class="mb-2 rounded-xl">
             @can('valued', $service)
-
                 <textarea wire:model="comment" class="block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Write a comment..." rows="2"></textarea>
-                
                 @error('comment')
                     <div x-data="{ open: true }" class="my-4">
                         <div x-show="open" class="bg-red-400 border border-red-500 text-white px-4 py-1 rounded-full relative" role="alert">
@@ -19,11 +15,8 @@
                         </div>
                     </div>
                 @enderror
-
                 <div class="flex items-center mt-2 mb-2">
-                    
-                    <button wire:click = "store" class="btn bg-blue-900 hover:bg-blue-700 text-white">Send<i class="ml-2 fas fa-paper-plane"></i></button>
-
+                    <button wire:click="store" class="btn bg-blue-900 hover:bg-blue-700 text-white">Send<i class="ml-2 fas fa-paper-plane"></i></button>
                     <ul class="flex ml-2">
                         <li wire:click="$set('rating', 1)" class="mr-2 cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105">
                             <i class="fas fa-star text-{{$rating >= 1 ? 'yellow' : 'gray'}}-500"></i>
@@ -77,7 +70,7 @@
         </div>
     @endguest
 
-    <div class="shadow-lg rounded-lg px-1 py-2 md:p-3 bg-gray-50 mt-3">
+    <div class="shadow-sm rounded-lg px-1 py-2 md:py-4 bg-gray-50 mt-3">
         <div class="px-0.5">
             <p class="text-gray-800 text-xs md:text-sm mb-2 pl-1"><b>{{ $comentarios->total()}} &nbsp; Comment (s)</b></p>
 
@@ -102,7 +95,9 @@
                     </div>
                 </article>
             @empty
-                No comments at this time
+                <div class="text-gray-600 text-sm md:text-base">
+                    No comments at this time
+                </div>
             @endforelse
             <div class="pt-4">
                 {{$comentarios->links()}}

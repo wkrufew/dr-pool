@@ -30,7 +30,7 @@ class ServiceRiviews extends Component
     {
         $service = Service::find($this->service_id);
 
-        $comentarios = $service->reviews()->latest()->paginate(2);
+        $comentarios = $service->reviews()->latest()->paginate(3);
         
         return view('livewire.service-riviews', compact('service','comentarios'));
     }

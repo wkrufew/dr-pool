@@ -11,12 +11,15 @@ class HomeController extends Controller
 {
     public function __invoke()
     {
-        $brands = Brand::select('url','foto')->get();
-        $resenas = Resena::select('name','description')->get();
-        $sliders= Slider::select('name', 'foto')->orderBy('name','ASC')->get();
-        $services = Service::where('status', '2')
-                                    ->with(['image','goals'])
-                                    ->take(8)->get();
-            return view('welcome', compact('services','brands','resenas','sliders'));
+        
+        $brands = cache()->remember('brands', 60*60*24, function () {
+            return Brand::select('url','foto')->get();
+        });
+        
+        $resenas = cache()->remember('resenas', 60*60*24, function () {
+            return Resena::select('name','description')->get();
+        });
+           
+        return view('welcome', compact('brands','resenas'));
     }
 }

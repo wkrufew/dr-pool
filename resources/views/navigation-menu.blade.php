@@ -1,5 +1,10 @@
 <nav x-data="{ open: false }" class="fixed inset-x-0 bg-white  md:bg-white top-0 z-50 py-0 md:py-4 transition-all duration-150 ease-in rounded-b-md" id="navbar">
     <!-- Primary Navigation Menu -->
+    @php
+        $empresa = cache()->remember('empresas', 60*60*24, function () {
+            return DB::table('empresas')->select('foto','telefono1')->first();
+        });
+    @endphp
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
@@ -9,7 +14,7 @@
                     </a>
                 </div> 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-6 mx-auto sm:-my-px sm:ml-32 lg:flex {{ @auth pl-44 @else pl-28 @endauth }}">
+                <div class="hidden space-x-6 mx-auto sm:-my-px sm:ml-32 lg:flex  @auth pl-44 @else pl-28 @endauth">
                     <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                         <label style="font-family: Metropolis,sans-serif;" class="text-blue-800 text-sm border-2 border-blue-800 rounded-full py-1  px-5  cursor-pointer hover:text-white hover:bg-blue-800 transition duration-500 ease-in-out transform hover:-translate-y-0.5 hover:scale-105 tracking-wider">Home</label>
                     </x-jet-nav-link>
@@ -32,18 +37,20 @@
            @auth
            <div class="hidden lg:block my-auto">
             <div class=" w-20">
-                    <a title="Coverage" class="pr-6 text-blue-900 text-xl  hover:text-blue-700 transition duration-300 ease-in-out transform hover:-translate-y-0.5 hover:scale-105" href="{{route('coverage')}}"><i class="fas fa-globe-americas"></i></a>
-                    <a class="text-blue-900 text-xl hover:text-blue-700 transition duration-300 ease-in-out transform hover:-translate-y-0.5 hover:scale-105" href="tel:{{$empresa->telefono1}}"><i class="fas fa-phone"></i></a> 
+                    <a class="pr-6 text-blue-900 text-xl hover:text-blue-700 transition duration-300 ease-in-out transform hover:-translate-y-0.5 hover:scale-105" href="tel:{{$empresa->telefono1}}"><i class="fas fa-phone"></i></a> 
+                    <a title="Coverage" class=" text-blue-900 text-xl  hover:text-blue-700 transition duration-300 ease-in-out transform hover:-translate-y-0.5 hover:scale-105" href="{{route('coverage')}}"><i class="fas fa-globe-americas"></i></a>
             </div>
            </div>
            @endauth
             <div class="hidden lg:flex sm:items-center sm:ml-6">
+                @guest
                 <div class="flex">
                     <a class="pr-6 text-blue-900 text-xl  hover:text-blue-700 transition duration-300 ease-in-out transform hover:-translate-y-0.5 hover:scale-105" href="tel:{{$empresa->telefono1}}"><i class="fas fa-phone"></i></a>
                 </div>
                 <div class="flex">
                     <a title="Coverage" class="px-2 text-blue-900 text-xl  hover:text-blue-700 transition duration-300 ease-in-out transform hover:-translate-y-0.5 hover:scale-105" href="{{route('coverage')}}"><i class="fas fa-globe-americas"></i></a>
                 </div>
+                @endguest
                 <!-- Settings Dropdown -->
                 @auth
                     <div class="ml-3 relative">

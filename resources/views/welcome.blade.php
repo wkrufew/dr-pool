@@ -1,42 +1,28 @@
 <x-app-layout>
-    <section class="mt-16 md:mt-24 mb-0 md:mb-0 altura portada filo relative cursor-pointer">
-        <!-- Swiper -->
-        <div class="swiper">
-            <div class="swiper-wrapper">
-                @foreach ($sliders as $slider)
-                    <div class="swiper-slide posicion1">
-                        <img src="{{ Storage::url($slider->foto) }}" alt="">
-                    </div>
-                @endforeach
-            </div>
-            <!-- Add Pagination -->
-            <div class="hidden md:block swiper-pagination swiper-pagination-white"></div>
-            <!-- Add Navigation -->
-            <div class="hidden md:block w-2 h-2">
-                <div class="swiper-button-prev swiper-button-white"></div>
-                <div class="swiper-button-next swiper-button-white"></div>
-            </div>
-        </div>
-        <!-- Initialize Swiper -->
-        <script type="module">
-            var swiper = new Swiper('.swiper', {
-                effect: "fade",
-                loop: true,
-                autoplay: true,
-                speed: 1000,
-                parallax: true,
-                centeredSlides: true,
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
+    
+    @livewire('slider-portada')
+    @push('js')
+        <script>
+            Livewire.on('swiper', function() {
+                var swiper = new Swiper('.swiper', {
+                    effect: "fade",
+                    loop: true,
+                    autoplay: true,
+                    speed: 1000,
+                    parallax: true,
+                    centeredSlides: true,
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
             });
         </script>
-    </section>
+    @endpush
     <section class="py-3 md:py-4 mt-4 select-none">
         <div style="text-align: center; justify-content: center;"
             class="mb-1 flex titulo1 container max-w-5xl justify-center text-center mx-auto  pb-2 md:pb-4">
@@ -53,23 +39,11 @@
                 </a>
             </div>
         </div>
-        <div
-            class="bg-white py-2 max-w-7xl mx-auto px-8 sm:px-16 lg:px-8 grid  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8 mb-6 ">
-            @foreach ($services as $service)
-                <x-service-card1 :service="$service" />
-            @endforeach
-        </div>
-        @if ($services->count() > 8)
-            <div class="w-full text-center">
-                <a href="{{ route('services.index') }}"
-                    class="bg-blue-900 py-1.5 px-3 rounded-md text-white text-base font-semibold hover:bg-blue-700">
-                    View More
-                </a>
-            </div>
-        @endif
+        @livewire('servicio-portada')
+        
     </section>
 
-    <section class="relative bg-gradient-to-t from-blue-900 to-blue-200  mt-10 z-30 select-none">
+    <section class="relative bg-blue-900 mt-10 z-30 select-none">
         <div class="relative w-full mt-0">
             <svg class="wave-top" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -233,7 +207,6 @@
             // Your options go here
         });
         document.addEventListener('DOMContentLoaded', function() {
-
             new Splide('#card-slider', {
                 type: 'loop',
                 speed: 2000,
@@ -246,7 +219,6 @@
                         height: 'auto',
                     }
                 },
-
                 arrows: false,
                 arrow: false,
 
@@ -255,10 +227,7 @@
                 autoplay: true,
             }).mount();
         });
-
         document.addEventListener('DOMContentLoaded', function() {
-
-
             new Splide('#card-slider1', {
                 type: 'loop', //que sea infinito que termine y vuelva a empezar
                 perPage: 1, //cantidad de obejtos visibles en la pagina 
@@ -271,10 +240,8 @@
                         height: 'auto',
                     }
                 },
-
                 arrows: false, //yo lo tengo asi por que no quiero que me salgan las flechitas a los costados tu puedes quitarles
                 arrow: false,
-
                 interval: 5000, //aqui manejas el tiempo en el que quieres que pasen las imagenes 6000 serian 6 segundos
                 pagination: false, // para la paginacion
                 autoplay: true, //para que se reproduzca automaticamente

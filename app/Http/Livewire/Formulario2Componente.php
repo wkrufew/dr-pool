@@ -15,9 +15,7 @@ class Formulario2Componente extends Component
     use WithFileUploads;
 
     public $name, $phone, $email, $ubication, $material, $sustancia, $galon, $description,$file1,$file2,$service_id,$day;
-    /* public $services; */
     public $services;
-    /* public $serviceSelectedId; */
     public $serviceTite;
 
     protected $rules = [
@@ -52,8 +50,7 @@ class Formulario2Componente extends Component
 
     public function render()
     {
-        $this->services = Service::where('status', 2)->get(); 
-
+        $this->services = Service::select('id','title')->where('status', 2)->get();
         return view('livewire.formulario2-componente');
     }
 
@@ -82,7 +79,6 @@ class Formulario2Componente extends Component
             } else {
                 $file2 = "";
             }
-
         $mensaje =  Contact::create([
             'name' => $this->name,
             'phone' => $this->phone,
@@ -98,18 +94,15 @@ class Formulario2Componente extends Component
             'image1' => $file1,
             'image2' => $file2,
         ]); 
-
         //aqui se van enviar los correos
-       
         Mail::to($this->email)
               ->cc('admin@dr-pools.com')
               ->send(new FormularioContact($mensaje));
 
        // fin del envio de correos
-
         $this->reset('name', 'phone', 'email', 'ubication', 'material','sustancia', 'galon', 'description','file1','file2','services','serviceTite','service_id','day');
-
         session()->flash('mensaje', 'exito');
+        
         return redirect()->to('/');
 
         } catch (\Exception $e) {

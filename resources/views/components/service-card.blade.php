@@ -1,8 +1,8 @@
 
 @props(['service'])
 
-<article class="bg-white shadow-md rounded-lg overflow-hidden border-4 border-white hover:shadow-xl hover:border-blue-300 relative">
-    <img class="h-30 md:h-32 bg-cover w-full cursor-pointer" data-preload="true" data-fancybox src="{{Storage::url($service->image->url)}}" alt="">
+<article class="bg-white max-w-sm shadow-md rounded-lg overflow-hidden border-4 border-white hover:shadow-xl hover:border-blue-300 relative">
+    <img class="h-30 bg-cover w-full cursor-pointer" data-preload="true" data-fancybox src="{{Storage::url($service->image->url)}}" alt="{{$service->slug}}">
     <div class="px-6 py-4  mb-10">
         <h1 class="font-bold text-lg text-blue-900 leading-6 mb-4 ">{{Str::limit($service->title, 28)}}</h1>
             <div class="relative">
