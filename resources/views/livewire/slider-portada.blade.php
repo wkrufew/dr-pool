@@ -17,6 +17,19 @@
                 height: 29vh;
             }
         }
+        @media screen and (max-width: 950px) {
+            .alturaslider {
+                height: auto;
+            }
+            .alturaslidercarga {
+                height: 45vh;
+            }
+        }
+        @media screen and (max-width: 1150px) {
+            .alturaslider {
+                height: auto;
+            }
+        }
 
     </style>
     @if (count($sliders))
