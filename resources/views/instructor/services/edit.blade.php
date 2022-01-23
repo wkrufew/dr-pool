@@ -17,8 +17,11 @@
             </div>
         {!! Form::close() !!}
         
-    <x-slot name="js">
+    @push('js')
         <script src="{{ asset('https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js') }}"></script>
         <script src="{{asset('js/instructor/services/form.js')}}"></script>
-    </x-slot>
+    @endpush
+{{--     <x-slot name="js">
+        
+    </x-slot> --}}
 </x-instructor-layout>

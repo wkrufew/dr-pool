@@ -1,9 +1,5 @@
 <div>
- {{-- CONSULTA DE LOS DATOS DE LA EMPRESA --}}
-{{--  @php
- $empresa = DB::table('empresas')->select('name','telefono1','telefono2','foto','propietario','pais_ciudad','calles','correo','dias','horas','facebook','instagram')->first();
-@endphp --}}
-{{-- FIN DE LA CONSULTA --}}
+
 <footer class="relative  bg-blue-900 text-gray-700 select-none">
  <div class="relative w-full -mt-1">
      <svg class="wave-top" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +35,10 @@
              <div class="flex items-center mt-2">
                  <div class="w-full">
                      <p class="block text-white text-sm md:text-sm font-bold mb-1">
-                         {{ $empresa->propietario }}
+                         
+                         @if ($empresa->propietario)
+                            {{ $empresa->propietario }}
+                         @endif
                      </p>
                      <img class="block h-36 w-auto mx-auto " src="{{ Storage::url($empresa->whatsapp) }}">
                  </div>
@@ -171,7 +170,7 @@
      <script>
          document.write(new Date().getFullYear());
      </script>
-     {{ $empresa->name }}&nbsp;LLC &nbsp; - &nbsp; All rights reserved.
+     {{ $empresa->name }} &nbsp;LLC &nbsp; - &nbsp; All rights reserved.
      </p>
  </div>
 </footer>

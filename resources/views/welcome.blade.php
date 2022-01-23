@@ -189,8 +189,12 @@
             </div>
         </div>
     </section>
-
+    @push('js')
     <script>
+        Fancybox.bind("[data-fancybox]", {
+            // Your options go here
+        });
+
         //Opacidad a la portada
         const checkpoint = 350;
         window.addEventListener("scroll", () => {
@@ -203,9 +207,7 @@
             document.querySelector(".portada").style.opacity = opacity;
         });
         //fin de opacidad a la portada
-        Fancybox.bind("[data-fancybox]", {
-            // Your options go here
-        });
+        
         document.addEventListener('DOMContentLoaded', function() {
             new Splide('#card-slider', {
                 type: 'loop',
@@ -248,5 +250,5 @@
             }).mount();
         });
     </script>
-
+    @endpush
 </x-app-layout>
