@@ -1,5 +1,5 @@
 <x-app-layout>
-    
+
     @livewire('slider-portada')
     @push('js')
         <script>
@@ -27,7 +27,7 @@
         <div style="text-align: center; justify-content: center;"
             class="mb-1 flex titulo1 container max-w-5xl justify-center text-center mx-auto  pb-2 md:pb-4">
             <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;"
-                class="underline text-xl md:text-3xl text-center  font-bold text-blue-900 my-auto cursor-pointer">
+                class="text-xl md:text-3xl text-center  font-bold text-blue-900 my-auto">
                 <a>
                     Serving in Connecticut
                 </a>
@@ -40,11 +40,11 @@
             </div>
         </div>
         @livewire('servicio-portada')
-        
+
     </section>
 
     <section class="relative bg-blue-900 mt-10 z-30 select-none">
-        <div class="relative w-full mt-0">
+        {{-- <div class="relative w-full mt-0">
             <svg class="wave-top" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink">
                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -71,20 +71,102 @@
                     </g>
                 </g>
             </svg>
+        </div> --}}
+        <div class="bg-white w-full mt-0">
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                <defs>
+                    <path id="gentle-wave"
+                        d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax">
+                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(30,58,138,0.7" />
+                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(30,58,138,0.5)" />
+                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(30,58,138,0.3)" />
+                    <use xlink:href="#gentle-wave" x="48" y="7" fill="#1E3A8A" />
+                </g>
+            </svg>
+            <style>
+                .waves {
+                    position: relative;
+                    width: 100%;
+                    height: 2vh;
+                    margin-bottom: -7px;
+                    /*Fix for safari gap*/
+                    min-height: 100px;
+                    max-height: 150px;
+                }
+
+                .content {
+                    position: relative;
+                    height: 10vh;
+                    text-align: center;
+                    background-color: white;
+                }
+
+                /* Animation */
+
+                .parallax>use {
+                    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+                }
+
+                .parallax>use:nth-child(1) {
+                    animation-delay: -2s;
+                    animation-duration: 7s;
+                }
+
+                .parallax>use:nth-child(2) {
+                    animation-delay: -3s;
+                    animation-duration: 10s;
+                }
+
+                .parallax>use:nth-child(3) {
+                    animation-delay: -4s;
+                    animation-duration: 13s;
+                }
+
+                .parallax>use:nth-child(4) {
+                    animation-delay: -5s;
+                    animation-duration: 20s;
+                }
+
+                @keyframes move-forever {
+                    0% {
+                        transform: translate3d(-90px, 0, 0);
+                    }
+
+                    100% {
+                        transform: translate3d(85px, 0, 0);
+                    }
+                }
+
+                /*Shrinking for mobile*/
+                @media (max-width: 768px) {
+                    .waves {
+                        height: 40px;
+                        min-height: 40px;
+                    }
+
+                    .content {
+                        height: 30vh;
+                    }
+                }
+
+            </style>
         </div>
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-14">
             <h1 style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;"
                 class="cotizar1 mt-10 tracking-wide  text-white text-center text-xl md:text-3xl font-bold">Make an
                 appointment with us!
             </h1>
             <div class="flex justify-center mt-6 border-transparent border-0 border-none">
                 <a href="{{ route('cotizacion2') }}"
-                    class="cotizar3 transition duration-300 ease-in-out transform hover:-translate-y-0.5 hover:scale-105 center py-1 px-2 text-white  font-semibold rounded-full shadow-md hover:bg-blue-700 hover:text-white border-2 hover:border-white focus:outline-none  focus:ring-opacity-75 ">
+                    class="animate-bounce cotizar3 transition duration-300 ease-in-out transform hover:-translate-y-0.5 hover:scale-105 center py-1 px-2 text-white  font-semibold rounded-full shadow-md hover:bg-blue-700 hover:text-white border-2 hover:border-white focus:outline-none  focus:ring-opacity-75 ">
                     Let's go
                 </a>
             </div>
         </div>
-        <div class="relative mt-1">
+        {{-- <div class="relative mt-1">
             <svg viewBox="0 0 1428 174" version="1.1" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink">
                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -106,6 +188,88 @@
                     </g>
                 </g>
             </svg>
+        </div> --}}
+        <div class="bg-white w-full mt-0 transform rotate-180">
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                <defs>
+                    <path id="gentle-wave"
+                        d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax">
+                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(30,58,138,0.7" />
+                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(30,58,138,0.5)" />
+                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(30,58,138,0.3)" />
+                    <use xlink:href="#gentle-wave" x="48" y="7" fill="#1E3A8A" />
+                </g>
+            </svg>
+            <style>
+                .waves {
+                    position: relative;
+                    width: 100%;
+                    height: 2vh;
+                    margin-bottom: -7px;
+                    /*Fix for safari gap*/
+                    min-height: 100px;
+                    max-height: 150px;
+                }
+
+                .content {
+                    position: relative;
+                    height: 10vh;
+                    text-align: center;
+                    background-color: white;
+                }
+
+                /* Animation */
+
+                .parallax>use {
+                    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+                }
+
+                .parallax>use:nth-child(1) {
+                    animation-delay: -2s;
+                    animation-duration: 7s;
+                }
+
+                .parallax>use:nth-child(2) {
+                    animation-delay: -3s;
+                    animation-duration: 10s;
+                }
+
+                .parallax>use:nth-child(3) {
+                    animation-delay: -4s;
+                    animation-duration: 13s;
+                }
+
+                .parallax>use:nth-child(4) {
+                    animation-delay: -5s;
+                    animation-duration: 20s;
+                }
+
+                @keyframes move-forever {
+                    0% {
+                        transform: translate3d(-90px, 0, 0);
+                    }
+
+                    100% {
+                        transform: translate3d(85px, 0, 0);
+                    }
+                }
+
+                /*Shrinking for mobile*/
+                @media (max-width: 768px) {
+                    .waves {
+                        height: 40px;
+                        min-height: 40px;
+                    }
+
+                    .content {
+                        height: 30vh;
+                    }
+                }
+
+            </style>
         </div>
     </section>
 
@@ -190,65 +354,65 @@
         </div>
     </section>
     @push('js')
-    <script>
-        Fancybox.bind("[data-fancybox]", {
-            // Your options go here
-        });
+        <script>
+            Fancybox.bind("[data-fancybox]", {
+                // Your options go here
+            });
 
-        //Opacidad a la portada
-        const checkpoint = 350;
-        window.addEventListener("scroll", () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll <= checkpoint) {
-                opacity = 1 - currentScroll / checkpoint;
-            } else {
-                opacity = 0;
-            }
-            document.querySelector(".portada").style.opacity = opacity;
-        });
-        //fin de opacidad a la portada
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            new Splide('#card-slider', {
-                type: 'loop',
-                speed: 2000,
-                perPage: 1,
-                trimSpace: false,
-                focus: 'center',
-                breakpoints: {
-                    600: {
-                        perPage: 1,
-                        height: 'auto',
-                    }
-                },
-                arrows: false,
-                arrow: false,
+            //Opacidad a la portada
+            const checkpoint = 350;
+            window.addEventListener("scroll", () => {
+                const currentScroll = window.pageYOffset;
+                if (currentScroll <= checkpoint) {
+                    opacity = 1 - currentScroll / checkpoint;
+                } else {
+                    opacity = 0;
+                }
+                document.querySelector(".portada").style.opacity = opacity;
+            });
+            //fin de opacidad a la portada
 
-                interval: 5000,
-                pagination: false,
-                autoplay: true,
-            }).mount();
-        });
-        document.addEventListener('DOMContentLoaded', function() {
-            new Splide('#card-slider1', {
-                type: 'loop', //que sea infinito que termine y vuelva a empezar
-                perPage: 1, //cantidad de obejtos visibles en la pagina 
-                speed: 2000, // aqui manejas la suavidad que tiene al pasar  3000 serian 3 segundos
-                trimSpace: false,
-                focus: 'center', //mantiene centrado las imagenes
-                breakpoints: {
-                    600: {
-                        perPage: 1,
-                        height: 'auto',
-                    }
-                },
-                arrows: false, //yo lo tengo asi por que no quiero que me salgan las flechitas a los costados tu puedes quitarles
-                arrow: false,
-                interval: 5000, //aqui manejas el tiempo en el que quieres que pasen las imagenes 6000 serian 6 segundos
-                pagination: false, // para la paginacion
-                autoplay: true, //para que se reproduzca automaticamente
-            }).mount();
-        });
-    </script>
+            document.addEventListener('DOMContentLoaded', function() {
+                new Splide('#card-slider', {
+                    type: 'loop',
+                    speed: 2000,
+                    perPage: 1,
+                    trimSpace: false,
+                    focus: 'center',
+                    breakpoints: {
+                        600: {
+                            perPage: 1,
+                            height: 'auto',
+                        }
+                    },
+                    arrows: false,
+                    arrow: false,
+
+                    interval: 5000,
+                    pagination: false,
+                    autoplay: true,
+                }).mount();
+            });
+            document.addEventListener('DOMContentLoaded', function() {
+                new Splide('#card-slider1', {
+                    type: 'loop', //que sea infinito que termine y vuelva a empezar
+                    perPage: 1, //cantidad de obejtos visibles en la pagina 
+                    speed: 2000, // aqui manejas la suavidad que tiene al pasar  3000 serian 3 segundos
+                    trimSpace: false,
+                    focus: 'center', //mantiene centrado las imagenes
+                    breakpoints: {
+                        600: {
+                            perPage: 1,
+                            height: 'auto',
+                        }
+                    },
+                    arrows: false, //yo lo tengo asi por que no quiero que me salgan las flechitas a los costados tu puedes quitarles
+                    arrow: false,
+                    interval: 5000, //aqui manejas el tiempo en el que quieres que pasen las imagenes 6000 serian 6 segundos
+                    pagination: false, // para la paginacion
+                    autoplay: true, //para que se reproduzca automaticamente
+                }).mount();
+            });
+        </script>
     @endpush
 </x-app-layout>

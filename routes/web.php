@@ -80,15 +80,21 @@ Route::get('storage-link', function () {
 });
 
 Route::get('modo-down', function () {
-    $exitCode = Artisan::call('down --secret="drpools"');
+    $exitCode = Artisan::call('down --secret="drpools2022"');
     return 'The system in maintenance mode';
 })->name('down');
 
 Route::get('up', function () {
     $exitCode = Artisan::call('up');
     //return 'The system is already active';
-    return redirect()->route('home');
+    return back()->with('notificacion','System Up');
 })->name('up');
+
+//ruta para refrescar la cache de la app
+Route::get('/fresh', function() {
+    $exitCode = Artisan::call('cache:clear');
+    return back()->with('notificacion','System cache is up to date');
+})->name('fresh');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

@@ -1,31 +1,25 @@
 <x-app-layout>
     <style>
-        
         .mapBox{
             position: relative;
             width: 100%;
             height: 90vh;
             background: white;
         }
-
         .mapBox iframe{
             width: 100%;
             height: 100%;
         }
-
         @media screen and (max-width: 600px) {
-
             .mapa {
                 height: auto;
-
             }
         }
-
     </style>
     @php
         $empresa = DB::table('empresas')->select('detalle')->first();
     @endphp
-    <section class="max-h-full w-full bg-black mt-24 flex justify-center items-center">
+    <section class="max-h-full w-full bg-black mt-16 md:mt-24 flex justify-center items-center">
         <div class="mapBox">
             @if ($empresa->detalle)
                 <iframe src="{{$empresa->detalle}}" ></iframe>

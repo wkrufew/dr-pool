@@ -7,15 +7,24 @@
 @stop
 
 @section('content')
-
+    @if(session('notificacion'))   
+    <div class="alert alert-success" role="alert">
+    <strong>Success! </strong> {{session('notificacion')}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
     @forelse($empresas as $empresa)
     <div class="card">
         <div class="card-header">
             Data
         </div>
-        {{-- <div class="card-body justify-between flex">
+        <div class="card-body justify-between flex">
             <a class="btn btn-danger" href="{{route('down')}}">System Maintenance</a>
-        </div> --}}
+            <a class="btn btn-success" href="{{route('up')}}">System Up</a>
+            <a class="btn btn-primary" href="{{route('fresh')}}">Refresh Cache</a>
+        </div>
         <div class="card-body">
             <div class="row mb-3">
                 <div class="col input-group">

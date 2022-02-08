@@ -13,11 +13,9 @@ class ServicesIndex extends Component
 
     public function render()
     {
-        
-        $services = Service::where('status', '2')
-                            ->with(['image','goals'])
+        $services = Service::select(['id','logo','title','slug','description'])->where('status', '2')
+                            ->with(['image'])
                             ->paginate(6);
-
         return view('livewire.services-index', compact('services')); 
     }
 }

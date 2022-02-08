@@ -1,4 +1,5 @@
 <x-app-layout>
+    {{-- SECCION DEL BOTON BLOTANTE --}}
     <section class="overflow-hidden block md:hidden">
         <div class="fixed z-50 right-0 bottom-1 w-full -mb-1 shadow-xl md:sticky md:top-36 ">
             <div class="text-center bg-white p-2 border-t rounded-t-2xl">
@@ -10,19 +11,18 @@
             </div>
         </div> 
     </section>
-    <section class=" alturaportada  relative overflow-hidden">
-        <div class="fixed bg-fixed h-auto md:h-full pt-16 w-full  bg-cover  top-0 left-0 z-0">
-            <img data-preload="true" data-fancybox src="{{ Storage::url($service->image->url) }}" alt="{{$service->title}}" class="object-cover cursor-pointer w-full">
+    {{-- SECCION DE PORTADA --}}
+    <section class="alturaportada relative">
+        <div class="fixed bg-fixed h-auto object-cover w-full">
+            <img class="object-cover cursor-pointer w-full" data-preload="true" data-fancybox src="{{ Storage::url($service->image->url) }}" alt="{{$service->title}}">
         </div>
     </section>
     <script>
         Fancybox.bind("[data-fancybox]", {
-
         });
     </script>
-
     <section class="relative bg-white pt-2">
-        <div class="container grid grid-cols-1 lg:grid-cols-3 gap-6 ">
+        <div class="container grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div class="order-2 lg:col-span-2 lg:order-1">
                 <section class="card mb-12 select-none shadow-xl">
                     <div class="card-body">
@@ -48,8 +48,8 @@
                  {{-- RENDERIZA LA VISTA DE LOS COMENTARIOS --}}
                 @livewire('service-riviews', ['service' => $service])
             </div>
-            <div class="order-2 lg:order-2 select-none sticky top-48">
-                <section class="hidden md:block card mb-6 shadow-md md:sticky md:top-20 z-10">
+            <div class="order-2 lg:order-2 select-none hidden md:block">
+                <section class="card mb-6 shadow-md">
                     <div class="card-body text-center w-full">
                         <p class="text-blue-900 text-lg"> <b>{{$service->title}} </b> </p>
                         <a href="{{ route('cotizacion', $service) }}"
@@ -59,7 +59,7 @@
                         </a>
                     </div>
                 </section>
-                <section class="card py-2 shadow-md md:sticky md:top-48">
+                <section class="card py-2 shadow-md">
                     <article class="justify-center object-cover overflow-hidden flex ">
                         <div class="text-center">
                             <a href="{{ route('coverage') }}">
